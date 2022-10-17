@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Przykładowy program</title>
+    </head>
+    <body>
+        <script>
+
+            function ShowInfo()
+            {
+                document.writeln("Hello world!!!!");
+                document.writeln("<br/>");
+            }
+
+            ShowInfo();
+            ShowInfo();
+
+            function GetParametr(parametr)
+            {
+                document.writeln(parametr);
+                document.writeln("<br/>");
+            }
+
+            GetParametr("Cześć świecie!!!");
+            GetParametr("Już prawie koniec lekcji.");
+            GetParametr(125);
+            document.writeln ("<br/>");
+            document.writeln ("<br/>");
+
+            //deklaracje zmienny 
+
+            var zm1 =5;
+            let zm2 =7; 
+            //zmienna globalna, dostepna w calym kodzie w
+            //nie ma znaczenia gdzie została zadeklarowana 
+            //patrz na zm6
+            zm3 =9; 
+            //const st1 =77;
+
+            function WyswietlZmienne()
+            {
+                document.writeln("zm1 " +zm1);
+                document.writeln ("<br/>");
+                document.writeln("zm2  " +zm2);
+                document.writeln ("<br/>");
+                document.writeln("zm3  " +zm3);
+                document.writeln ("<br/>");
+
+
+            }
+            WyswietlZmienne();
+
+
+            function FunkcjaZeZmiennymi()
+            {
+                //zmienne zm4 i zm5 tylko w tej funkcji 
+                var zm4 =99; 
+                let zm5 =55;
+                zm6 = 77;
+                //ta zmienna jest globalna
+                //i dostepna poza funkcja
+            }
+
+            FunkcjaZeZmiennymi();
+
+            //Zmienne zm4 i zm5 nie istnieja 
+
+            /*    document.writeln("zm4" +zm4);
+                document.writeln ("<br/>");
+                document.writeln("zm5" +zm5);
+                document.writeln ("<br/>");*/
+                document.writeln("zm6  " + zm6);
+                document.writeln ("<br/>"); 
+
+
+                function WytlumaczenieVarLet()
+                {
+                    if (true)
+                    {
+                        //zakres calej funkcji 
+                        var zm7 =12
+                        //zakres blokowy 
+                        //do nawiasow klamrowych w ktorych jest zadeklarowana
+
+                        //let zm8 = 8 
+                      
+                    }
+                    document.writeln("zm7  " + zm7);
+                document.writeln ("<br/>"); 
+                /*document.writeln("zm8  " + zm8);
+                document.writeln ("<br/>"); zadziała tylko w zakresie blokowym */
+                }
+            WytlumaczenieVarLet();
+        </script>
+    </body>
+</html>
