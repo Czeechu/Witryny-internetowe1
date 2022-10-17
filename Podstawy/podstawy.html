@@ -10,7 +10,53 @@
     <body>
         <h1> Pierwsza strona JS </h1> 
         <script> 
-            document.write("Tekst z JS");
+            document.writeln("Tekst JS");
+            document.writeln("<br/>");
+
+            var pierwszaZmienna;
+
+            document.writeln("Zawaerość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            var pierwszaZmienna = 2;
+
+            pierwszaZmienna = pierwszaZmienna + 1;
+
+            document.writeln("Zawaerość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            pierwszaZmienna = "Hello world";
+
+            document.writeln("Zawaerość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            pierwszaZmienna = true;
+            document.writeln("Zawaerość zmiennej " + pierwszaZmienna);
+            document.writeln("<br/>");
+
+            document.writeln("<br/>");
+            document.writeln("Operatory porównania: ");
+            document.writeln("<br/>");
+
+            //== - równości
+            //!= - różności
+            //>, >=, <, <= 
+            // === zmienne tego samego typu i są równe
+            // !== zmienne tego samego typu i są różne
+            
+
+
+            var lewaZmienna = 5;
+            var prawaZmienna = 7;
+
+            if (lewaZmienna === prawaZmienna)
+                document.writeln("Zmienne równe");
+            else
+                document.writeln("nie równe");
+            document.writeln("<br/>");
+
+            
+            
         </script>
         <p> Teskt po skrypcie</p>
     </body>
