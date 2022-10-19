@@ -39,7 +39,7 @@
 
             function WyswietlZmienne()
             {
-                document.writeln("zm1 " +zm1);
+                document.writeln("zm  1" +zm1);
                 document.writeln ("<br/>");
                 document.writeln("zm2  " +zm2);
                 document.writeln ("<br/>");
@@ -91,6 +91,22 @@
                 document.writeln ("<br/>"); zadziała tylko w zakresie blokowym */
                 }
             WytlumaczenieVarLet();
+            document.writeln ("<br/>");
+
+            function loop()
+            {
+                for (i = 0; i < 10; i++)
+                {
+                    
+                    document.writeln(i);
+                    document.writeln ("<br/>");
+
+                }
+                //document.writeln(i); wypisze 10 bo i jest zmienna globalna
+
+            }
+            loop();
+
         </script>
     </body>
 </html>
