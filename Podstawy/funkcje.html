@@ -5,6 +5,7 @@
     </head>
     <body>
         <script>
+            
 
             function ShowInfo()
             {
@@ -39,7 +40,7 @@
 
             function WyswietlZmienne()
             {
-                document.writeln("zm  1" +zm1);
+                document.writeln("zm1 " +zm1);
                 document.writeln ("<br/>");
                 document.writeln("zm2  " +zm2);
                 document.writeln ("<br/>");
@@ -91,21 +92,63 @@
                 document.writeln ("<br/>"); zadziała tylko w zakresie blokowym */
                 }
             WytlumaczenieVarLet();
-            document.writeln ("<br/>");
 
-            function loop()
+            function FunkcjaPetlowa()
             {
                 for (i = 0; i < 10; i++)
+                
                 {
-                    
                     document.writeln(i);
                     document.writeln ("<br/>");
-
                 }
-                //document.writeln(i); wypisze 10 bo i jest zmienna globalna
-
+                // document.writeln(i); wypisze 10 bo jest zmienna globalna
             }
-            loop();
+            FunkcjaPetlowa();
+            // document.writeln(i);
+
+            function FunkcjaDwaParametry(parametr, parametr2)
+            {
+                document.writeln(parametr);
+                document.writeln("<br/>");
+                document.writeln(parametr2);
+                document.writeln("<br/>");
+            }
+            FunkcjaDwaParametry("Ala ma kota", 12345);
+
+            document.writeln("<br/>");
+
+            function Suma(liczbaPierwsza, liczbaDruga)
+            {
+                var wynik;
+                wynik = liczbaPierwsza + liczbaDruga;
+                return wynik;
+            }
+            var wynikFunkcji = Suma(15, 6);
+            //var wynikFunkcji = Suma("15", true);
+            document.writeln(wynikFunkcji);
+            document.writeln("<br/>");
+
+            function Roznica(liczbaPierwsza, liczbaDruga)
+            {
+                var wynik;
+                wynik = liczbaPierwsza - liczbaDruga;
+                return wynik;
+            }
+            var wynikFunkcji = Roznica(15, 6);
+            //var wynikFunkcji = Suma("15", true);
+            document.writeln(wynikFunkcji);
+            document.writeln("<br/>");
+
+            function Dzielenie(liczbaPierwsza, liczbaDruga)
+            {
+                var wynik;
+                wynik = liczbaPierwsza / liczbaDruga;
+                return wynik;
+            }
+            var wynikFunkcji = Dzielenie(15, 0);
+            //var wynikFunkcji = Suma("15", true);
+            document.writeln(wynikFunkcji);
+            document.writeln("<br/>");
 
         </script>
     </body>

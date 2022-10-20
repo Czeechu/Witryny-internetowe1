@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Przykładowy prgram</title>
+
+    </head>
+    <body>
+        
+        <script>
+            /* zad 1
+            napisz funkcję, która wyświetli liczby od 0 do 10.
+            */
+
+            function zadanie1()
+            {
+                for (i = 0; i < 11; i++)
+                
+                {
+                    document.writeln(i);
+                    document.writeln ("<br/>");
+                }
+                
+            }
+            zadanie1();
+            
+            function zadanie2(parametr)
+            {
+                if(parametr%2==0)
+                {
+                    document.wrtie("Liczba parzysta");
+                }
+                else
+                {
+                    document.write("Liczba nieparzysta");
+                }
+            }
+            zadanie2();
+            document.writeln ("<br/>");
+
+            function zadanie3(parametr, parametr2)
+            {
+                if(parametr==parametr2)
+                {
+                    document.write("Wartości są równe")
+                }
+
+                else 
+                {
+                    document.write("Wartości są nierówne")
+                }
+
+            }
+            document.writeln ("<br/>");
+            zadanie3(5, 6);
+            document.writeln ("<br/>");
+
+            function zadanie4(parametr)
+            {
+                
+                switch(parametr) 
+                {
+                    case 1:
+                        document.write("Poniedziałek");
+                        break;
+                    case 2:
+                        document.write("Wtorek");
+                        break;
+                    case 3:
+                        document.write("Środa");
+                        break;
+                    case 4:
+                        document.write("Czwartek");
+                        break;
+                    case 5:
+                        document.write("Piątek");
+                        break;
+                    case 6:
+                        document.write("Sobota");
+                        break;
+                    case 0:
+                    case 7:
+                        document.write("Niedziela");
+                        break;
+                }   
+
+            }
+            document.writeln ("<br/>");
+            zadanie4(4);
+            document.writeln ("<br/>");
+
+            function zadanie5(iloczynA, iloczynB)
+            {
+                var wynik;
+                for(let i = 0;  i <11; i++)
+                {
+                    
+                for(let j = 0; j <11; j++)
+                    {    
+                        wynik = i  * j;
+                        document.write(i + " * " + j + " = " + wynik);
+                        document.writeln ("<br/>")
+                        
+                    }
+                    document.writeln ("<br/>")
+                }
+            }
+            document.writeln ("<br/>");
+            zadanie5();
+            document.writeln ("<br/>");
+
+            function zadanie6(parametr)
+            {
+                document.write(parametr + " na binarny = " + parametr.toString(2));
+
+            }
+            document.writeln ("<br/>");
+            zadanie6(7);
+            document.writeln ("<br/>");
+
+        </script>
+
+    </body>
+
+</html>
