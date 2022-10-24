@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang = "pl">
+    <head>
+        <title> Tablica </title>
+        <meta charset = "UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </head>
+    <body>
+        <script> 
+            let tablica = [5];
+            tablica[0] = 15;
+            tablica[1] = "Ala";
+            tablica[2] = 78;
+            tablica[4] = true;
+            tablica[5] = false;
+
+            document.write("Rozmair tablic: " + tablica.length + "<br/>");
+            for(let i = 0; i < tablica.length; i++)
+            {
+                document.write(tablica[i] + "<br/>");
+            }
+
+            document.writeln("<br/>");
+
+            function WyswielZawartoscTablicy(param)
+            {
+                for(let i = 0; i < param.length; i++)
+            {
+                document.write(param[i] + "<br/>");
+            }
+            }
+            WyswielZawartoscTablicy(tablica);
+
+            function WyswietlParametry(p1, p2)
+            {
+                //document.write(p1 + "<br/>");
+                //document.write(p2 + "<br/>"); moge wykomentowac i usunac parametr p1, p2 i tak mozna wyswielic 
+
+                document.write(p1 + "<br/>");
+                document.write(p2 + "<br/>");
+                document.write("Wyswietlenie wszystich parametrow <br/>");
+                for(let i = 0; i < arguments.length; i++ )
+                {
+                    document.write(arguments[i] + "<br/>");
+                }
+            }
+            document.write("******************** <br/>");
+            WyswietlParametry(3, 7, 69, 61, 78);
+
+            /*
+            Napisz funkcje, ktora jako parametr przyjmie tablice 
+            i wyswietli najwieksza liczbe z tej tablcy
+            */
+
+            let tab = [13, 15, 20, 35, 45];
+            
+            function Maxliczba(parm)
+            {
+                
+                for(let i=0; i < param.length; i++)
+                {
+
+                }
+            }
+
+        </script>
+    </body>
+</html>
