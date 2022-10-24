@@ -54,14 +54,19 @@
 
             let tab = [13, 15, 20, 35, 45];
             
-            function Maxliczba(parm)
+            function MaxLiczba(param)
             {
                 
+                let max=0;
                 for(let i=0; i < param.length; i++)
                 {
-
+                    if(max<tab[i]);
+                        max = tab[i];
                 }
+                document.write("Największa liczba to " + max);
             }
+            document.write("<br/>");
+            MaxLiczba(tab);
 
         </script>
     </body>
