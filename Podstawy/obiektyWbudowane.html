@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Obiekty wbudowane </title>
+        <style>
+            body {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 25px;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <script>
+            //  ---------------- obiekt typu String  ---------------- 
+            let tekst = "Ala ma kota";
+            document.write("'" + tekst + "' ma dlugosc " + tekst.length + "<br>");
+            
+            let podtekst = tekst.substring(7, 11);
+            document.write(podtekst + "<br>");
+
+            document.write(tekst[5] + " <br>");
+            document.write(tekst.toUpperCase() + "<br>");
+            document.write(tekst.toLowerCase() + "<br>");
+
+            let nowyTekst = new String("Nowy tekst");
+            document.write(nowyTekst);
+
+            //  ----------------  obiekt typu Array ---------------- 
+            let tab1 = [];
+            let tab2 = new Array();
+            let tab3 = new Array(5);
+            tab3 = [15, 7, 32, 26, 5, 1];
+            
+            function showArray3(param)
+            {
+                var x = 1;
+                for(let i = 0; i < param.length; i++)
+                {
+
+                    document.write("Element nr " + x + ". " + param[i] + " " + "<br>");
+                    x++;
+                }
+            }
+            document.write("<br><br>");
+            showArray3(tab3);
+            document.write("<br><br>");
+            tab3.sort();
+            document.write("Zawartosc tablicy orginalna: <br>");
+            document.write(tab3.join() + " ");
+
+            tab1 = [5,1,12,8];
+            document.write("<br><br>" + tab1.join() + "<br>");
+            tab1.sort(); // sortuje jako obiekt string (łączy znaki)
+            document.write(tab1.join() + "<br>");
+
+            function PorownajLiczby(a,b)
+            {
+                if(a > b)
+                    return 1;
+                if(a == b)
+                    return 0;
+                if(a === b)
+                {
+                    document.write('cos');
+                }
+                if(a < b)
+                    return -1;
+            }
+
+            // tab1.sort(PorownajLiczby);
+            //document.write("sortowanie metoda sort: <br>");
+            //document.write(tab1.join + ", ");
+
+            function bubbleSort(tab) // sortuje jako liczby
+            {
+                for(let i = 0; i < tab.length; i++)
+                {
+                    for(let j = 0; j < tab.length; j++)
+                    {
+                        if(tab[j]>tab[j+1])
+                        {
+                            let tmp = tab[j];
+                            tab[j] = tab[j+1];
+                            tab[j+1] = tmp;
+                        }
+                    }
+                }
+            }
+            // ---------------- obiekt typu date  ---------------- 
+            let data = new Date();
+            document.write(data.toString() + "<br>");
+            document.write(data.toLocaleString() + "<br>");
+            document.write(data.toUTCString() + "<br>");
+
+            document.write("Rok: " + data.getFullYear() + "<br>");
+            document.write("Miesiac " + data.getMonth() + "<br>");
+            document.write("Dzien Tygodnia: " + data.getDay() + "<br>");
+            document.write("Dzien Miesiaca: " + data.getDate() + "<br>");
+            document.write("Godzina: " + data.getHours() + "<br>");
+            document.write("Sekunda: " + data.getMinutes() + "<br>");
+            document.write("Milisekunda: " + data.getMilliseconds() + "<br>");
+
+            function wyswietlCzas()
+            {
+                var day = data.getDay();
+                switch(day)
+                {
+                    case 1: 
+                        day = " Poniedzialek ";
+                        break;
+                    case 2:
+                        day = " Wtorek ";
+                        break;
+                    case 3:
+                        day = " Sroda ";
+                        break;
+                    case 4:
+                        day = " Czwartek ";
+                        break;
+                    case 5:
+                        day = " Piatek ";
+                        break;
+                    case 6: 
+                        day = " Sobota "; 
+                        break;
+                    case 7:
+                        day = " Niedziela "
+                        break;
+                }
+                var month = data.getMonth()+1;
+                switch(month)
+                {
+                    case 1: 
+                        month = " Styczen ";
+                        break;
+                    case 2: 
+                        month = " Luty ";
+                        break;
+                    case 3: 
+                        month = " Marzec ";
+                        break;
+                    case 4: 
+                        month = " Kwiecien ";
+                        break;
+                    case 5: 
+                        month = " Maj ";
+                        break;
+                    case 6: 
+                        month = " Czerwiec ";
+                        break;
+                    case 7: 
+                        month = " Lipiec ";
+                        break;
+                    case 8: 
+                        month = " Sierpien ";
+                        break;
+                    case 9: 
+                        month = " Wrzesien ";
+                        break;
+                    case 10: 
+                        month = " Pazdziernik ";
+                        break;
+                    case 11: 
+                        month = " Listopad ";
+                        break;
+                    case 12: 
+                        month = " Grudzien ";
+                        break;
+                }
+                function SecondsZero()
+                {
+                    if(data.getSeconds<10)
+                    {
+                        return 0;
+                    }
+                }     
+                document.write("<br><br><br>");
+                document.write("Dzisiaj jest: <br> "+ day + ", " + data.getDate() + month + " 2022 roku <br> Godzina: " + data.getHours() + ":" + "0" + data.getMinutes() + ":" + data.getSeconds());
+            }
+            wyswietlCzas();
+
+        </script>
+
+    </body>
+</html>
