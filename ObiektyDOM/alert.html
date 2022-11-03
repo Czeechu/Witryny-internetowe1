@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowy program</title>
+</head>
+<body>
+    <h1> Zdarzenia </h1> 
+     <script> 
+     
+    function ChangeText()
+    {
+        let elementNewText = document.getElementById("newText");
+
+        let elementToChange = window.document.getElementById("textToChange");
+        //elementToChange.innerHTML = "Ala ma kota";
+        elementToChange.innerHTML = elementNewText.value;
+    }
+
+    </script>
+
+    <div> Podaj tekst do zmiany: </div>
+    <input type = "text" id ="newText" value = "Przykladowy tekst "/><br/>
+    <input type ="button" value = "Wyświetl" onclick="ChangeText()"/><br/>
+    <div id="textToChange"> Podmien ten tekst </div>
+    
+
+</body>
+</html>

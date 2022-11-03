@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowy program</title>
+</head>
+<body>
+    <h1> Zdarzenia </h1> 
+     <script> 
+    
+    function ShowTime()
+    {
+        let data = new Date();
+        let godzina = Fix(data.getHours());
+        let minuta = Fix(data.getMinutes());
+        let sekunda = Fix(data.getSeconds());
+        
+        document.getElementById("tekst").innerHTML = godzina + ":" + minuta + ":" + sekunda;
+
+    }
+
+    function Fix(elementToFix)
+    {
+        if(elementToFix < 10)
+            return "0" + elementToFix;
+        return elementToFix;
+    }
+
+    window.setInterval(ShowTime, 1000);
+
+    </script>
+
+    <input type ="button" value = "Akutalna godzina " onclick="ShowTime()" />
+    <div id="tekst"> Akutalna godzina</div>
+
+</body>
+</html>
