@@ -10,5 +10,45 @@
     <h1> Podmianka zdjęcia z słabszego na lepsze   </h1>
 
 <img src ="fcb.png" onmouseover = "this.src = 'fcb.png'" src = "real.png" onmouseout = "this.src = 'real.png'" height = "200" width = "200"/>
+
+<br/>
+<br/>
+
+<img src="zd1.jpg" width="100" height="100" id="image3Id"
+    onmouseenter="changeImage2('fcb.png', 'image3Id')"
+    onmouseleave="changeImage2('real.png', 'image3Id')" />
+
+<br/>
+<br/>
+
+<img src="zd1.jpg" width = "100" height ="100"
+    onmouseenter="changeImage3('fcb.png', this)"
+    onmouseleave="changeImage3('real.png', this)" />
+
+<script>
+    //nazwa zdjecia
+    function changeImage(imageName)
+    {
+        let imgObject = document.getElementById("imageId");
+        imgObject.src = imageName;
+    }
+
+    //nazwa zdjecia i id elementu
+    function changeImage2(imageName, elementId)
+    {
+        let imgObject = document.getElementById(elementId);
+        imgObject.src = imageName;
+    }
+
+    //nazwa zdjecia oraz wskaznik na element
+    function changeImage3(imageName, pointer)
+    {
+        pointer.src = imageName;
+    }
+
+
+</script>
+
+
 </body>
 </html>
