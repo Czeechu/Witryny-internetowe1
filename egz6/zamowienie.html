@@ -7,7 +7,7 @@
     <title> Zamówienie hurtowe </title>
     <link rel = "stylesheet" href = "styl4.css" />
 </head>
-<body>
+<body onload="braki()">
     <div id="baner">
     <h1> Sieci komputerowe</h1>
     </div>
@@ -21,7 +21,7 @@
     </div>
 
     <div id="prawy">
-    <table>
+    <table id="tabela">
         <tr>
             <th>Produkt</th>
             <th>Jednostka</th>
@@ -32,30 +32,30 @@
         <tr>
             <td>Skrętka U/UTP drut</td>
             <td>metr</td>
-            <td id="demo">20</td>
-            <td><button onclick="update">Aktualizuj</button></td>
-            <td><button onclick="order">Zamów</button></td>
+            <td>20</td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
         </tr>
         <tr>
             <td>Skrętka U/UTP linka</td>
             <td>metr</td>
             <td>2</td>
-            <td><button onclick="update">Aktualizuj</button></td>
-            <td><button onclick="order">Zamów</button></td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
         </tr>
         <tr>
             <td>Wtyki 8P8C</td>
             <td>sztuki</td>
             <td>10</td>
-            <td><button onclick="update">Aktualizuj</button></td>
-            <td><button onclick="order">Zamów</button></td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
         </tr>
         <tr>
             <td>Moduł Keystone</td>
             <td>sztuki</td>
             <td onclick="">30</td>
-            <td><button onclick="update">Aktualizuj</button></td>
-            <td><button onclick="order">Zamów</button></td>
+            <td><button class="p1" onclick="update(this)">Aktualizuj</button></td>
+            <td><button class ="p2" onclick="order(this)">Zamów</button></td>
         </tr>
     </table>
     
@@ -67,7 +67,47 @@
     </div>
 
     <script>
-    
+    function braki(){
+            const tabela = document.getElementById("tabela")
+            komorki = document.getElementById("tabela").rows[0].cells.length
+            for(i = 1; i <= komorki; i++){
+                ilosc = tabela.rows[i].cells[2].innerText
+                if (ilosc == 0){
+                    tabela.rows[i].cells[2].style.background = "red"
+                }else if(ilosc >0 && ilosc <= 5){
+                    tabela.rows[i].cells[2].style.background = "yellow"
+                }else{
+                    tabela.rows[i].cells[2].style.background = "honeydew"
+                }
+            }
+        }
+        function update(id){
+            nowa_ilosc = prompt("Podaj nową ilość: ")
+            let but = document.getElementsByClassName("p1")
+            let w1 = 0
+            for (i=0; i < but.length; i++){
+                if(id == but[i]){
+                    w1 = i
+                }
+            }
+            document.getElementById("tabela").rows[w1+1].cells[2].innerHTML = nowa_ilosc
+            braki()
+        }
+        function order(id){
+            let but2 = document.getElementsByClassName("p2")
+            let w2 = 0
+            for (i=0; i < but2.length; i++){
+                if(id == but2[i]){
+                    w2 = i
+                }
+            }
+            nr = w2 + 1
+            ilosc = document.getElementById("tabela").rows[nr].cells[2].innerText
+            document.getElementById("tabela").rows[nr].cells[2].innerHTML = parseInt(ilosc) + 1
+            nazwa = document.getElementById("tabela").rows[nr].cells[0].innerText
+            alert("Zamówienie nr: " + nr + " Produkt: " + nazwa)
+            braki()
+        }
     </script>
 </body>
 </html>
