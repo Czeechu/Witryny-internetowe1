@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <title>Kochamy kawę</title>
+    <link rel="stylesheet" href = "styl.css" />
+</head>
+<body>
+    <div id="menu">
+        <a href="index.html">Strona główna</a>
+        <a href="zamowienia.html">Zamówienia</a>
+        <a href="blog.html">Blog</a>
+        <a href="http://gatunki=kawy.pl">Gatunki kawy</a>
+    </div>
+    <div id="logo">
+        <img src="logo.png" alt="Kawa"/>
+    </div>
+    <div id = "baner">
+        <h1> Sklep z kawą</h1>
+    </div>
+    <div id="lewy">
+        Podaj numer kawy: 
+        <input type="number" id="number"> <br>
+        Podaj wagę w dekagramach: 
+        <input type="number" id="weight"> <br>
+        <input type="button" value="Zamów" onclick="zamow()">
+        <p id="resault"></p>
+    </div>
+    <div id = "prawy">
+        <h3> Oferta</h3>
+        <ul>
+            <li>Arabica</li>
+            <li>Robusta</li>
+            <li>Bezkofeinowa</li>
+            <li>zielona</li>
+        </ul>
+    </div>
+    <div id = "stopka">
+        <p> Stronę przygotował: <b>Filip Gos Czech</b> </p>
+    </div>
+        <script>
+            function zamow(){
+                number = document.getElementById("number").value
+                weight = document.getElementById("weight").value
+                if (number == 1){
+                    cena = weight * 5
+                } else if(number == 2){
+                    cena = weight * 7
+                } else if(number == 4){
+                    cena = weight * 6
+                }else{
+                    cena = 0
+                }
+                document.getElementById("resault").innerHTML = "Koszt zamówienia wynosi: " + cena + " zł"
+            }
+
+        </script>
+</body>
+</html>
