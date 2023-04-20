@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    background-color: #EEEEEE;
+}
+
+#kontener{
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+#logo, #menu, #stopka{
+    background-color: #c0c0c0;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#logo{
+    width: 400px;
+    float: left;
+}
+
+#menu{
+    width: 600px;
+    float: left;
+}
+
+#baner{
+    background-color: #DDDDDD;
+    height: 200px;
+    clear: both;
+}
+
+#glowny{
+    margin: 50px;
+}
+
+#stopka{
+    text-align: right;
+}
+
+a{
+    color: #555555;
+    margin: 50px;
+    font-size: 200%;
+    text-decoration: none;
+}
+
+hr{
+    background-color: #c0c0c0;
+    width: 70%;
+    border-width: 2px;
+}
+
+table{
+    text-align: left;
+}
+
+ul{
+    list-style-position:inside;
+}
