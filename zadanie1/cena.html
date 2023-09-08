@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styl_1.css">
+</head>
+<body>
+    <div id = "baner">
+        <h1> Malowanie pokoi i biur </h1>
+    </div>
+
+    <div id ="lewy">
+        <h2> Menu </h2>
+        <ul>
+            <a href ="mieszamy.html"><li> Mieszamy </li></a>
+            <a href ="cena.html"><li> Wyceniamy </li></a>
+        </ul>
+    </div>
+    
+    <div id ="srodkowy">
+        <h2>Zapotrzebowanie na farbę</h2>
+       
+        Powierzchnia malowanie (m<sup>2</sup>) <input type ="number" id="surface"/>
+       <button onclick="price()"> Policz</button>
+       <p id="result"></p>
+    </div>
+
+    <div id = "prawy">
+        <img src="obraz.png" alt="Próbki farb"/>
+    </div>
+
+    <div id = "stopka">
+        <h3> MALARZ </h3>
+        <br/>
+        <p> Stronę opracował: 69696969669</p>
+    </div>
+
+    <script>
+        function price() {
+            var y = document.getElementById("surface").value;
+            x=Math.ceil(y / 4);
+            document.getElementById("result").innerHTML = "Liczba jednolitrowych puszek farby potrzebnych do pomalowania wynosi: " + x;
+           
+        }
+    </script>
+
+</body>
+</html>
