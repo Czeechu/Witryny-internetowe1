@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz 2</title>
+</head>
+<body>
+
+    <form>
+        <label for="distance">Ilość kilometrów:</label>
+        <input type="number" id="distance" name="distance"><br><br>
+        <label for="gdansk">Jestem z Gdańska:</label>
+        <input type="checkbox" id="gdansk" name="gdansk"><br><br>
+        <button type="button" onclick="calculateDeliveryCost()">Oblicz koszt dowozu</button>
+        <div id="result"></div>
+      </form>
+
+    <script>
+        function calculateDeliveryCost() {
+        const distanceInput = document.getElementById("distance");
+        const gdanskCheckbox = document.getElementById("gdansk");
+        const result = document.getElementById("result");
+    
+        let distance = parseInt(distanceInput.value);
+        let isFromGdansk = gdanskCheckbox.checked;
+    
+        if (isFromGdansk) {
+            result.innerHTML = "Dowieziemy Twoją pizzę za darmo";
+        } else {
+            let deliveryCost = distance * 2;
+            result.innerHTML = `Dowóz będzie Cię kosztował ${deliveryCost} zł`;
+        }
+        }
+    </script>
+
+</body>
+</html>

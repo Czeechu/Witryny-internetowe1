@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz 4</title>
+</head>
+<body>
+
+    <form>
+        <label>Value 1: <input type="text" id="val1" /> <input type="checkbox" id="check1" /></label>
+        <br/>
+
+        <label>Value 2: <input type="text" id="val2" /> <input type="checkbox" id="check2" /></label>
+        <br/>
+
+        <label>Value 3: <input type="text" id="val3" /> <input type="checkbox" id="check3" /></label>
+        <br/>
+
+        <label>Value 4: <input type="text" id="val4" /> <input type="checkbox" id="check4" /></label>
+        <br/>
+
+        <label>Value 5: <input type="text" id="val5" /> <input type="checkbox" id="check5" /></label>
+        <br/>
+
+        <p id="sum">Sum: 0</p>
+      </form>
+
+      <script>
+        const form = document.querySelector('form');
+        const textFields = document.querySelectorAll('input[type="text"]');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const sumDisplay = document.getElementById('sum');
+        
+        form.addEventListener('input', () => {
+            let sum = 0;
+            textFields.forEach((textField, index) => {
+            if (checkboxes[index].checked) {
+                const value = parseInt(textField.value, 10);
+                if (!isNaN(value)) {
+                sum += value;
+                }
+            }
+            });
+            sumDisplay.textContent = `Sum: ${sum}`;
+        });
+      </script>
+
+</body>
+</html>
