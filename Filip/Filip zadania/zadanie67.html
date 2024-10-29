@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz 6 i 7</title>
+    
+</head>
+<body>
+    <h1>Formularz 6 i 7</h1>
+
+    <form id="brickForm">
+        <label for="quantity">Ilość cegieł:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+        <br/>
+        <label>
+            <input type="checkbox" id="premium" name="premium">
+            Cegła premium (30% droższa, 1.75 kg)
+            <br/>
+        </label>
+        <label for="distance">Odległość (km):</label>
+        <input type="number" id="distance" name="distance" min="0" required>
+        <br/>
+        <button type="button" onclick="calculateCost()">Oblicz</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateCost() {
+            const quantity = document.getElementById('quantity').value;
+            const isPremium = document.getElementById('premium').checked;
+            const distance = document.getElementById('distance').value;
+
+            const standardBrickPrice = 2; 
+            const premiumBrickPrice = 2 * 1.3; 
+            const standardBrickWeight = 1.5;
+            const premiumBrickWeight = 1.75; 
+
+            const transportCostPer10kg = 0.50; 
+
+            let totalCost, totalWeight, brickType, transportCost;
+
+            if (isPremium) {
+                brickType = "cegła premium";
+                totalCost = quantity * premiumBrickPrice;
+                totalWeight = quantity * premiumBrickWeight;
+            } else {
+                brickType = "cegła standardowa";
+                totalCost = quantity * standardBrickPrice;
+                totalWeight = quantity * standardBrickWeight;
+            }
+
+            const totalWeightIn10kgUnits = Math.ceil(totalWeight / 10); 
+            transportCost = totalWeightIn10kgUnits * transportCostPer10kg * distance;
+
+            document.getElementById('result').innerHTML = `
+                Zakupiona ilość cegieł: ${quantity}, ${brickType}, <br>
+                Koszt zakupu cegieł: ${totalCost.toFixed(2)} zł, <br>
+                Waga cegieł: ${totalWeight.toFixed(2)} kg
+                Koszt transportu (za ${distance} km): ${transportCost.toFixed(2)} zł
+            `;
+        }
+    </script>
+</body>
+</html>

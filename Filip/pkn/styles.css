@@ -1,0 +1,11 @@
+*{
+    text-align: center;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.buttons button {
+    padding: 10px;
+    margin: 10px;
+}

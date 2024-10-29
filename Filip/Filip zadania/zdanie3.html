@@ -3,37 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz 4</title>
+    <title>Formularz 3</title>
 </head>
 <body>
-
-    <form>
-        <label>
-            a: 
-            <input type="text" id="pierwszaLiczba"/>
-        </label>
-        
-        <br/> <br/>
-
-        <label>
-            b: <input type="text" id="drugaLiczba"/>
-        </label>
+    <h1>Formularz 3</h1>
+    <form id="calculator-form">
+        Podaj a:
+        <input type="text" id="a"/>
 
         <br/>
+        <br/>
 
-        <label>
-            <input type="button"  value="dodawanie"/>
-            <input type="button"  value="odejmowanie"/>
-            <input type="button"  value="mnożenie"/>
-            <input type="button"  value="dzielenie"/>
-            <input type="button"  value="reszta z dzielenia"/>
-            <input type="button"  value="dzielenie całkowite"/>
-        </label>
-      </form>
+        Podaj b:
+        <input type="text" id="b"/>
+        <br><br>
+        <button type="button" onclick="calculate('+')">Dodawanie</button>
+        <button type="button" onclick="calculate('-')">Odejmowanie</button>
+        <button type="button" onclick="calculate('*')">Mnożenie</button>
+        <button type="button" onclick="calculate('/')">Dzielenie</button>
+        <button type="button" onclick="calculate('%')">Reszta z dzielenia</button>
+        <button type="button" onclick="calculate('/')">Dzielenie całkowite</button>
+    </form>
+    
+    <div id="result"></div>
 
-      <script>
-        
-      </script>
+    <script>
+        function calculate(operation) {
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = ''; 
 
+            if (a === '' || b === '') {
+                resultDiv.innerHTML = '<p>Proszę wprowadzić wartości w obu polach.</p>';
+                return;
+            }
+
+            a = parseFloat(a);
+            b = parseFloat(b);
+
+            if (isNaN(a) || isNaN(b)) {
+                resultDiv.innerHTML = '<p>Wprowadzone wartości muszą być liczbami.</p>';
+                return;
+            }
+
+            var result;
+            switch (operation) {
+                case '+':
+                    result = a + b;
+                    break;
+                case '-':
+                    result = a - b;
+                    break;
+                case '*':
+                    result = a * b;
+                    break;
+                case '/':
+                    if (b === 0) {
+                        resultDiv.innerHTML = '<p>Nie można dzielić przez 0.</p>';
+                        return;
+                    }
+                    result = a / b;
+                    break;
+                case '%':
+                    if (b === 0) {
+                        resultDiv.innerHTML = '<p>Nie można dzielić przez 0 w celu obliczenia reszty z dzielenia.</p>';
+                        return;
+                    }
+                    result = a % b;
+                    break;
+                case '/':
+                    if (b === 0) {
+                        resultDiv.innerHTML = '<p>Nie można dzielić przez 0 w celu obliczenia dzielenia całkowitego.</p>';
+                        return;
+                    }
+                    result = Math.floor(a / b);
+                    break;
+                default:
+                    resultDiv.innerHTML = '<p>Nieznane działanie.</p>';
+                    return;
+            }
+
+            resultDiv.innerHTML = '<p>Wynik: ' + result + '</p>';
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz 8</title>
+</head>
+<body>
+    <h1>Formularz 8</h1>
+
+    <form id="aquaparkForm">
+        <label for="normalTickets">Ilość biletów normalnych:</label>
+        <input type="number" id="normalTickets" name="normalTickets" min="0" required>
+        <br/>
+        <br/>
+        <label for="reducedTickets">Ilość biletów ulgowych:</label>
+        <input type="number" id="reducedTickets" name="reducedTickets" min="0" required>
+        <br/>
+        <br/>
+        <label for="hours">Ilość godzin:</label>
+        <input type="number" id="hours" name="hours" min="1" required>
+        <br/>
+        <br/>
+        <label>
+            <input type="checkbox" id="largeFamilyCard" name="largeFamilyCard">
+            Karta dużej rodziny (10% rabatu)
+        </label>
+        <br/>
+        <br/>
+        <button type="button" onclick="calculateCost()">Oblicz</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateCost() {
+            const normalTickets = parseInt(document.getElementById('normalTickets').value, 10);
+            const reducedTickets = parseInt(document.getElementById('reducedTickets').value, 10);
+            const hours = parseInt(document.getElementById('hours').value, 10);
+            const isLargeFamilyCard = document.getElementById('largeFamilyCard').checked;
+
+            const normalPricePerHour = 10;  
+            const reducedPricePerHour = 5;  
+            const fullDayNormalPrice = 50;  
+            const fullDayReducedPrice = 25; 
+
+            let totalCost = 0;
+
+            if (hours <= 4) {
+                totalCost += normalTickets * normalPricePerHour * hours;
+            } else {
+                totalCost += normalTickets * fullDayNormalPrice;
+            }
+
+            if (hours <= 4) {
+                totalCost += reducedTickets * reducedPricePerHour * hours;
+            } else {
+                totalCost += reducedTickets * fullDayReducedPrice;
+            }
+
+            if (isLargeFamilyCard) {
+                totalCost *= 0.9; 
+            }
+
+            const freeNormalTickets = Math.floor(reducedTickets / 15);
+            totalCost -= freeNormalTickets * (hours <= 4 ? normalPricePerHour * hours : fullDayNormalPrice);
+
+            document.getElementById('result').innerHTML = `
+                Całkowity koszt wstępu do aquaparku: ${totalCost.toFixed(2)} zł
+            `;
+        }
+    </script>
+</body>
+</html>
